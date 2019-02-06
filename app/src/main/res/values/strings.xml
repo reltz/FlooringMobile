@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">FlooringMobile</string>
+    <string name="app_name">Flooring Calculator</string>
+    <string name="boxes">Calculate how much product you need</string>
 </resources>
