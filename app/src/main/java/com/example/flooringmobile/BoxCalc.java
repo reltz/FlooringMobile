@@ -19,10 +19,12 @@ public class BoxCalc extends AppCompatActivity {
 
     protected EditText price;
     protected double thePrice;
+    protected double totalPrice;
 
     protected TextView display;
+    protected TextView finalPrice;
+    protected TextView pricePerFoot;
 
-    protected String output;
     protected double boxNumber;
     protected double priceSqFt;
 
@@ -46,33 +48,38 @@ public class BoxCalc extends AppCompatActivity {
         //10percent
         ten = findViewById(R.id.checkBox);
 
-        ten.setOnClickListener(t -> {
-            if (ten.isChecked()) {
-                measure = Float.valueOf(myMeasure.getText().toString())*1.1;
-            }
-            else {
-                measure = Float.valueOf(myMeasure.getText().toString());
-            }
-
-        });
-
-
 
 
         display = findViewById(R.id.outputBox);
         calculate.setOnClickListener( b-> {
             //exception handling needed -> boxes cant be empty!
-
+                if (ten.isChecked()) {
+                    measure = Float.valueOf(myMeasure.getText().toString())*1.1;
+                }
+                else {
+                    measure = Float.valueOf(myMeasure.getText().toString());
+                }
 
                 thePrice = Float.valueOf(price.getText().toString());
                 coverage = Float.valueOf(boxCoverage.getText().toString());
                 //measure = Float.valueOf(myMeasure.getText().toString());
 
 
-                    boxNumber = (measure  / coverage);
+                    boxNumber = Math.ceil(measure  / coverage);
 
-                output = "You need " + boxNumber + " boxes!";
-                display.setText(output);
+                String output1 = String.format("%s %d %s","You need ",(int) boxNumber," boxes!");
+                display.setText(output1);
+
+
+                totalPrice=thePrice*boxNumber;
+                String output2 = String.format("Total price is: %.2f",totalPrice);
+                finalPrice = findViewById(R.id.totalPrice);
+                finalPrice.setText(output2);
+
+                priceSqFt = thePrice/coverage;
+                String output3= String.format("Price per SqFt is %.2f",priceSqFt);
+                pricePerFoot.setText(output3);
+
 
 
 
