@@ -72,12 +72,13 @@ public class BoxCalc extends AppCompatActivity {
 
 
                 totalPrice=thePrice*boxNumber;
-                String output2 = String.format("Total price is: %.2f",totalPrice);
+                String output2 = String.format("Total price is: $ %.2f",totalPrice);
                 finalPrice = findViewById(R.id.totalPrice);
                 finalPrice.setText(output2);
 
+                pricePerFoot = findViewById(R.id.pricePerSquare);
                 priceSqFt = thePrice/coverage;
-                String output3= String.format("Price per SqFt is %.2f",priceSqFt);
+                String output3= String.format("Price per SqFt is $ %.2f",priceSqFt);
                 pricePerFoot.setText(output3);
 
 
