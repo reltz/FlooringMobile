@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Flooring Calculator</string>
     <string name="boxes">Calculate how much product you need</string>
+    <string name="enterMeasure">Measure in SqFt:</string>
+    <string name="boxSize">Coverage of one box:</string>
+    <string name="price">Price of one box:</string>
+    <string name="calculate">Calculate</string>
+    <string name="reset">Reset</string>
+
 </resources>
