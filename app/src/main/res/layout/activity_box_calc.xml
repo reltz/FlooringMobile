@@ -118,18 +118,28 @@
         android:layout_marginTop="15dp"
         android:gravity="center">
 
-    <Button
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="10% extra"
+            android:gravity="fill"/>
+
+        <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/calculateBoxes"
         android:text="@string/calculate"
+            android:layout_weight="1"
         />
 
         <Button
             android:id="@+id/reset1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/reset" />
+            android:text="@string/reset"
+            android:layout_weight="1"/>
 
 
     </LinearLayout>
