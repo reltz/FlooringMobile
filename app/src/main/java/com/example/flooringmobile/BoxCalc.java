@@ -54,13 +54,32 @@ public class BoxCalc extends AppCompatActivity {
         calculate.setOnClickListener( b-> {
             //exception handling needed -> boxes cant be empty!
                 if (ten.isChecked()) {
-                    measure = Float.valueOf(myMeasure.getText().toString())*1.1;
+                    try {measure = Float.valueOf(myMeasure.getText().toString())*1.1;}
+                    catch (RuntimeException e) {
+                        if (!Double.isNaN(measure)) {
+                            measure=0d;
+                        }
+                    }
+
                 }
                 else {
-                    measure = Float.valueOf(myMeasure.getText().toString());
+                    try {measure = Float.valueOf(myMeasure.getText().toString()); }
+                    catch (RuntimeException e) {
+                        if (!Double.isNaN(measure)) {
+                            measure=0d;
+                        }
+                    }
+
                 }
 
-                thePrice = Float.valueOf(price.getText().toString());
+               try {
+                   thePrice = Float.valueOf(price.getText().toString());
+               } catch (RuntimeException e) {
+                   if (!Double.isNaN(thePrice)) {
+                       thePrice=0d;
+                   }
+               }
+
                 coverage = Float.valueOf(boxCoverage.getText().toString());
                 //measure = Float.valueOf(myMeasure.getText().toString());
 
