@@ -42,4 +42,12 @@
         android:gravity="center"
         android:text="@string/blindCut" />
 
+    <TextView
+        android:layout_marginTop="350sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Created by Rodrigo Eltz. 2019"
+        android:textAlignment="textEnd"
+        />
+
 </LinearLayout>

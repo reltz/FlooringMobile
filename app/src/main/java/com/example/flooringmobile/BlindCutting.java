@@ -51,7 +51,7 @@ public class BlindCutting extends AppCompatActivity {
                             "You have to cut %.2f from one side", cut));
                 }
 
-                
+
 
             } catch (RuntimeException e) {
                 if (!Double.isNaN(initialBlindDouble) || !Double.isNaN(finalBlindDouble)) {
