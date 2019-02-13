@@ -115,16 +115,19 @@ public class BoxCalc extends AppCompatActivity {
 
 
         });
+        resetIt = findViewById(R.id.reset1);
+        resetIt.setOnClickListener( r -> {
+            myMeasure.setText("");
+            price.setText("");
+            boxCoverage.setText("");
+            display.setText("");
+            finalPrice.setText("");
+            pricePerFoot.setText("");
 
-//        resetIt.setOnClickListener( r -> {
-//            myMeasure.setText("");
-//            price.setText("");
-//            boxCoverage.setText("");
-//            display.setText("");
-//
-//
-//
-//        });
+
+
+
+        });
 
 
     }
