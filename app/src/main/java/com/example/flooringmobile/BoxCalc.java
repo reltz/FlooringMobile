@@ -7,6 +7,8 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.Locale;
+
 public class BoxCalc extends AppCompatActivity {
     protected double measure;
     protected EditText myMeasure;
@@ -72,33 +74,42 @@ public class BoxCalc extends AppCompatActivity {
 
                 }
 
-               try {
-                   thePrice = Float.valueOf(price.getText().toString());
-               } catch (RuntimeException e) {
-                   if (!Double.isNaN(thePrice)) {
-                       thePrice=0d;
-                   }
-               }
-
+            try {
                 coverage = Float.valueOf(boxCoverage.getText().toString());
                 //measure = Float.valueOf(myMeasure.getText().toString());
 
+                try {
+                    thePrice = Float.valueOf(price.getText().toString());
+                } catch (RuntimeException e) {
+                    if (!Double.isNaN(thePrice)) {
+                        thePrice=0d;
+                    }
+                }
 
-                    boxNumber = Math.ceil(measure  / coverage);
 
-                String output1 = String.format("%s %d %s","You need ",(int) boxNumber," boxes!");
+
+
+                boxNumber = Math.ceil(measure  / coverage);
+
+                String output1 = String.format(Locale.CANADA,"%s %d %s","You need ",(int) boxNumber," boxes!");
                 display.setText(output1);
 
 
                 totalPrice=thePrice*boxNumber;
-                String output2 = String.format("Total price is: $ %.2f",totalPrice);
+                String output2 = String.format(Locale.CANADA,"Total price is: $ %.2f",totalPrice);
                 finalPrice = findViewById(R.id.totalPrice);
                 finalPrice.setText(output2);
 
                 pricePerFoot = findViewById(R.id.pricePerSquare);
                 priceSqFt = thePrice/coverage;
-                String output3= String.format("Price per SqFt is $ %.2f",priceSqFt);
-                pricePerFoot.setText(output3);
+                String output3= String.format(Locale.CANADA,"Price per SqFt is $ %.2f",priceSqFt);
+                pricePerFoot.setText(output3);}
+                catch (RuntimeException e) {
+                    if (!Double.isNaN(coverage)) {
+                        display.setText("Please enter a number on the box coverage!");
+                    }
+                }
+
 
 
 
