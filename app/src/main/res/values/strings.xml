@@ -7,5 +7,8 @@
     <string name="calculate">Calculate</string>
     <string name="reset">Reset</string>
     <string name="blindCut">Let`s cut some blinds</string>
+    <string name="initialSizeBlind">Initial size of Blind:</string>
+    <string name="finalSizeBlind">Final size of Blind:</string>
+    <string name="cutType">It is one or two side cut?</string>
 
 </resources>

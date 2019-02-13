@@ -19,7 +19,11 @@ public class MainActivity extends AppCompatActivity {
             startActivity(goBoxes);
         });
 
-
+        Button blinds = findViewById(R.id.blinds);
+        blinds.setOnClickListener(c-> {
+            Intent goBlinds = new Intent(MainActivity.this,BlindCutting.class);
+            startActivity(goBlinds);
+        });
 
     }
 
