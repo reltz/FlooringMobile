@@ -44,11 +44,13 @@ public class BlindCutting extends AppCompatActivity {
                     cut = (initialBlindDouble - finalBlindDouble) / 2;
                     output.setText(String.format(Locale.CANADA,
                             "You have to cut %.2f from each side", cut));
+                    outputFraction.setText(fractions(cut));
 
                 } else {
                     cut = initialBlindDouble - finalBlindDouble;
                     output.setText(String.format(Locale.CANADA,
                             "You have to cut %.2f from one side", cut));
+                    outputFraction.setText(fractions(cut));
                 }
 
 
@@ -71,4 +73,26 @@ public class BlindCutting extends AppCompatActivity {
 
 
     }
+
+    protected  String gcd(int num, int den) {
+        int n = num;
+        int d = den;
+        while (n!=d) {
+            d = d-n;
+        }
+
+        return String.format("%d/%d", num/d,den/d);
+
+
+
+    }
+
+    protected  String fractions(double cut) {
+        double dec = cut%1;
+        int whole = (int) (cut-dec);
+        int numerator = (int) Math.round(dec*16);
+        String myFraction = gcd(numerator,16);
+        return String.format("You have to cut %d and %s", whole,myFraction);
+    }
+
 }
